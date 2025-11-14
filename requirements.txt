@@ -1,3 +1,6 @@
 streamlit
 boto3
-
+pandas
+sys
+io
+ast

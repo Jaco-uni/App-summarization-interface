@@ -2,7 +2,7 @@ import pandas as pd
 import ast
 import io
 from config import download_to_s3
-from dotenv import load_dotenv
+
 
 load_dotenv()
 
