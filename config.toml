@@ -45,7 +45,7 @@ redColor = "#ff4b4b"
 # If `orangeColor` is provided, and `orangeBackgroundColor` isn't, then
 # `orangeBackgroundColor` will be derived from `orangeColor` using 10%
 # opacity for the light theme and 20% opacity for the dark theme.
-orangeColor =
+orangeColor = "#ffa421"
 
 # Yellow color used in the basic color palette.
 #
