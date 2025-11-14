@@ -35,7 +35,7 @@ textColor = "#000000"
 # If `redColor` is provided, and `redBackgroundColor` isn't, then
 # `redBackgroundColor` will be derived from `redColor` using 10%
 # opacity for the light theme and 20% opacity for the dark theme.
-redColor =
+redColor = "#ff4b4b"
 
 # Orange color used in the basic color palette.
 #
