@@ -151,7 +151,7 @@ if email in df["Email"].values:
 
                         
 elif email == "":
-        st.info("Insert your data.")
+        st.write("**Insert your data.**")
         # Inizializza la session state
         if "num_fields" not in st.session_state:
                 st.session_state.num_fields = 1
