@@ -61,8 +61,16 @@ content = download_to_s3()
 df = pd.read_csv(io.StringIO(content))
 
  # Interfaccia Streamlit
-st.title("Paper Search and Text Summarization")
-st.subheader("USER GUIDE: This interface allows users to enter their data and, similar to the Arxiv interface, select their own search parameters. This enables the receipt of a daily email at 7:00 PM containing summaries and the most important data from the day's publications. In the following interface, if a preference has already been registered, it can be modified by entering the same email used during the initial registration. Furthermore, if no papers are published on a given day, no email will be sent. To ensure that the data has been successfully submitted, please wait for the double confirmation message after clicking SAVE")
+st.title("📄 Paper Search and Text Summarization")
+
+with st.expander("📘 User Guide", expanded=True):
+    st.markdown("""
+    - This interface allows users to enter their data and select search parameters, similar to the Arxiv interface.
+    - A daily email is sent at **7:00 PM** containing summaries and key data from the day's publications.
+    - If a preference has already been registered, it can be modified using the same email.
+    - If no papers are published on a given day, **no email will be sent**.
+    - To ensure successful submission, wait for the **double confirmation message** after clicking **SAVE**.
+    """)
 
 # Input utente
 nome = st.text_input("Insert your name *")
@@ -177,7 +185,7 @@ if email in df["Email"].values:
                         classification = "all"
                 st.divider()
                 #bottone per salvataggio dati
-                if st.button("Save"):
+                if st.button("🔍 Save"):
                         if not nome or not cognome or not email:
                                 st.error("Plese, insert values in all fields with *") #obbligo di compilazione
                         else:
@@ -267,7 +275,7 @@ elif email == "":
 
 
         #bottone per salvataggio dati
-        if st.button("Salva"):
+        if st.button("🔍 Salva"):
                 if not nome or not cognome or not email:
                         st.error("Plese, insert values in all fields with *.") #obbligo di compilazione
                 else:
