@@ -62,7 +62,7 @@ df = pd.read_csv(io.StringIO(content))
 
  # Interfaccia Streamlit
 st.title("Paper Search and Text Summarization")
-
+st.subheader("USER GUIDE: This interface allows users to enter their data and, similar to the Arxiv interface, select their own search parameters. This enables the receipt of a daily email at 7:00 PM containing summaries and the most important data from the day's publications. In the following interface, if a preference has already been registered, it can be modified by entering the same email used during the initial registration. Furthermore, if no papers are published on a given day, no email will be sent. To ensure that the data has been successfully submitted, please wait for the double confirmation message after clicking SAVE")
 
 # Input utente
 nome = st.text_input("Insert your name *")
