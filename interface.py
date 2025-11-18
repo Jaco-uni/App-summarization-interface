@@ -61,9 +61,7 @@ content = download_to_s3()
 df = pd.read_csv(io.StringIO(content))
 
  # Interfaccia Streamlit
-col_i, col_t = st.columns(2)
-col_i.space("medium")
-col_i.image("arkiv.png")
+st.image("arkiv.png")
 
 st.title("Paper Search and Summarization📄", width="stretch")
 
