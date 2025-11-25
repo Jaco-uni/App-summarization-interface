@@ -166,26 +166,32 @@ if email in df["Email"].values:
                                                 result += f" {sub},\n"
                 st.write(result)
 
-                options = ["Computer Science (cs)", "Economics", "Electrical Engineering and Systems Science (eess)", "Mathematics (math)", "Physics", "Quantitative Biology (q-bio)", "Quantitative Finance (q-fin)", "Statistics (stat)"]
+                diz_sub={"Computer Science (cs)": "computer_science", "Economics (ec)":"economics", "Electrical Engineering and Systems Science (eess)":"electrical_engineering_and_systems_science", "Mathematics (math)":"mathematics", "Physics":"physics", "Quantitative Biology (q-bio)":"quantitative_biology", "Quantitative Finance (q-fin)": "quantitative_finance", "Statistics (stat)":"statistics"}
+                options = ["Computer Science (cs)", "Economics (econ)", "Electrical Engineering and Systems Science (eess)", "Mathematics (math)", "Physics (ph)", "Quantitative Biology (q-bio)", "Quantitative Finance (q-fin)", "Statistics (stat)"]
                 subject = st.pills("Subject", options, selection_mode="multi")
                 if subject == []:
                         subject = saved_subjects
-
-                #sottocategoria Physics
-                if "Physics" in subject:
-                        clas = f"Your saved classification(s) are: {saved_classification}\n"
-                        st.write(clas)
-                        agree = st.checkbox("Click if you want to select a subcategory of Physics")
-                        if agree:
-                                classification = st.selectbox(
-                                        "Elenco sottocategorie:",
-                                        ["all", "astro-ph", "cond-mat", "gr-qc", "hep-ex", "hep-lat",
-                                        "hep-ph", "hep-th", "math-ph", "nlin", "nucl-ex", "nucl-th", "physics", "quant-ph"], index=0
-                                        )
-                        else:
-                                classification = saved_classification
                 else:
-                        classification = "all"
+                        subj=[]
+                        for sub in subject:
+                                subj.append(diz_sub[sub])
+                        subject = subj
+
+                        #sottocategoria Physics
+                        if "Physics" in subject:
+                                clas = f"Your saved classification(s) are: {saved_classification}\n"
+                                st.write(clas)
+                                agree = st.checkbox("Click if you want to select a subcategory of Physics")
+                                if agree:
+                                        classification = st.selectbox(
+                                                "Elenco sottocategorie:",
+                                                ["all", "astro-ph", "cond-mat", "gr-qc", "hep-ex", "hep-lat",
+                                                "hep-ph", "hep-th", "math-ph", "nlin", "nucl-ex", "nucl-th", "physics", "quant-ph"], index=0
+                                                )
+                                else:
+                                        classification = saved_classification
+                        else:
+                                classification = "all"
                 st.divider()
                 #bottone per salvataggio dati
                 if st.button("🔍 Save"):
