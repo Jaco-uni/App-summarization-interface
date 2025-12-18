@@ -1,5 +1,6 @@
 # 📚 Summapp
-(arxiv.png)
+![](images/arxiv.png)
+
 
 **Summapp** is an application designed to keep users updated on the latest publications available on [arXiv](https://arxiv.org/), based on their research preferences and choices.  
 With a simple and intuitive interface, the app helps you stay informed about the most recent articles in your fields of interest.
