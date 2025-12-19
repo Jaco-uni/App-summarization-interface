@@ -84,6 +84,7 @@ buttonr_clicked = st.button("Delete Email", key="buttonr")
 if buttonr_clicked:
       if email != "":
               df = df[df['Email'] == email].reset_index(drop=True)
+              upload_to_s3(df) # Scrivo tutto in memoria e sovrascrivo su S3
               st.write("Success")
 else:  
       st.divider()
@@ -321,6 +322,7 @@ else:
      
 
      
+
 
 
 
