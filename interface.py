@@ -6,7 +6,7 @@ from config import download_to_s3, upload_to_s3
 import pandas as pd
 import ast
 from streamlit_extras.stylable_container import stylable_container
-
+from send_email import send_email, email_confermation
 
 st.markdown("""
 <style>
@@ -236,7 +236,14 @@ else:
                                                       df.loc[index, col] = str(val)
       
                                       upload_to_s3(df) # Scrivo tutto in memoria e sovrascrivo su S3
-      
+                                      send_email(to_email=email, 
+                                                subject="Automatically generated summaries - LOCALLY",
+                                                html_content=email_confermation(nome, cognome, email, subject, terms, and_or, classification),
+                                                smtp_server="smtp.gmail.com",  
+                                                smtp_port=465,
+                                                sender_email=os.getenv("SENDER_EMAIL"),
+                                                sender_password=os.getenv("SENDER_PASSWORD")
+                                                )
                                       st.success("File successfully updated on S3")
       
                               
@@ -319,7 +326,14 @@ else:
                                  df = pd.read_csv(io.StringIO(content))
                                  
                                  df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)    #Aggiungo la nuova riga
-                           
+                                 send_email(to_email=email, 
+                                                subject="Automatically generated summaries - LOCALLY",
+                                                html_content=email_confermation(nome, cognome, email, subject, terms, and_or, classification),
+                                                smtp_server="smtp.gmail.com",  
+                                                smtp_port=465,
+                                                sender_email=os.getenv("SENDER_EMAIL"),
+                                                sender_password=os.getenv("SENDER_PASSWORD")
+                                                )
                                  upload_to_s3(df) # Scrivo tutto in memoria e sovrascrivo su S3
                            
                                  st.success("File successfully updated on S3.")
@@ -329,6 +343,7 @@ else:
      
 
      
+
 
 
 
