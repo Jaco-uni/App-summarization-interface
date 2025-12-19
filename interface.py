@@ -85,9 +85,8 @@ if buttonr_clicked:
       if email != "":
               df = df[df['Email'] == email].reset_index(drop=True)
               st.write("Success")
-st.divider()
-
-else:
+else:  
+      st.divider()
       if email in df["Email"].values:
               on = st.toggle("Mail already registered. If you want to modify your data, activate this feature.")
               if on:
@@ -234,6 +233,7 @@ else:
       
                               
       else:
+              st.divider()
               st.write("**Insert your data.**")
               # Inizializza la session state
               if "num_fields" not in st.session_state:
@@ -322,6 +322,7 @@ else:
      
 
      
+
 
 
 
