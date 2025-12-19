@@ -233,7 +233,6 @@ else:
       
                               
       else:
-              st.divider()
               st.write("**Insert your data.**")
               # Inizializza la session state
               if "num_fields" not in st.session_state:
@@ -322,6 +321,7 @@ else:
      
 
      
+
 
 
 
