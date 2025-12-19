@@ -66,10 +66,6 @@ col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     st.image("Logo_app.png", width=250)
 
-
-
-st.title("Paper Search and Summarization📄", width="stretch")
-
 with st.expander("📘 User Guide", expanded=True):
     st.markdown("""
     - This interface allows users to enter their data and select search parameters, similar to the Arxiv interface.
@@ -326,6 +322,7 @@ else:
      
 
      
+
 
 
 
