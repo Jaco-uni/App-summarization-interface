@@ -83,13 +83,13 @@ st.write("Fields with * are obligatory")
 col1, col2, col3 = st.columns([1, 2, 1])
 with col1:
    buttonr_clicked = st.button("Delete Email", key="buttonr")
-   if buttonr_clicked:
+with col3:
+   st.write("Press only in case of sign out from the app *")
+if buttonr_clicked:
          if email != "":
                  df = df[df['Email'] != email].reset_index(drop=True)
                  upload_to_s3(df) # Scrivo tutto in memoria e sovrascrivo su S3
                  st.success("Success")
-with col3:
-   st.write("Press only in case of sign out from the app *")
 else:  
       st.divider()
       if email in df["Email"].values:
@@ -326,6 +326,7 @@ else:
      
 
      
+
 
 
 
