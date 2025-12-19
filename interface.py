@@ -83,9 +83,11 @@ email = st.text_input("Insert your email *", key="email")
 
 col1, col2= st.columns([1, 1])
 with col1:
-   buttonr_clicked = st.button("Delete Email", key="buttonr")
+   st.write("Press only in case you want sign out from the app ➡️")
+   
 with col2:
-   st.write("Press only in case you want sign out from the app *")
+   buttonr_clicked = st.button("Delete Email", key="buttonr")
+   
 if buttonr_clicked:
          if email != "":
                  df = df[df['Email'] != email].reset_index(drop=True)
@@ -327,6 +329,7 @@ else:
      
 
      
+
 
 
 
