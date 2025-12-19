@@ -62,7 +62,7 @@ content = download_to_s3()
 df = pd.read_csv(io.StringIO(content))
 
  # Interfaccia Streamlit
-col1, col2, col3 = st.columns([1, 2, 1])
+col1, col2, col3 = st.columns([1, 1, 1])
 with col2:
     st.image("Logo_app.png", width=250)
 
@@ -326,6 +326,7 @@ else:
      
 
      
+
 
 
 
