@@ -290,7 +290,10 @@ else:
              }""",
             ):
              buttonr_clicked = st.button("Delete Email", key="buttonr")
-        with stylable_container(
+        
+        
+        if buttonr_clicked:
+           with stylable_container(
              "red",
              css_styles="""
              write {
@@ -298,12 +301,9 @@ else:
              }""",
             ):
              email = st.text_input("Insert your email *")
-        
-        if buttonr_clicked:
-           st.write("Success")
            em = email
            df = df[df['Email'] == em].reset_index(drop=True)
-
+           st.write("Success")
            
         #bottone per salvataggio dati
         if st.button("🔍 Save"):
@@ -331,6 +331,7 @@ else:
                         upload_to_s3(df) # Scrivo tutto in memoria e sovrascrivo su S3
 
                         st.success("File successfully updated on S3.")
+
 
 
 
