@@ -283,7 +283,7 @@ else:
         else:
                 classification = "all"
         with stylable_container(
-             "red",
+             "red_button",
              css_styles="""
              button {
                  background-color: #FF0000;
@@ -331,6 +331,7 @@ else:
                         upload_to_s3(df) # Scrivo tutto in memoria e sovrascrivo su S3
 
                         st.success("File successfully updated on S3.")
+
 
 
 
