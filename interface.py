@@ -80,11 +80,11 @@ nome = st.text_input("Insert your name *", key="name")
 cognome = st.text_input("Insert your surname *", key="surname")
 email = st.text_input("Insert your email *", key="email")
 st.write("Fields with * are obligatory")
-col1, col2 = st.columns([1, 1])
-with col1:
-   buttonr_clicked = st.button("Delete Email", key="buttonr")
+col1, col2, col3 = st.columns([1, 1, 1])
 with col2:
-   st.write("Press only in case of sign out from the app *")
+   buttonr_clicked = st.button("Delete Email", key="buttonr")
+with col3:
+   st.write("Press only in case you want sign out from the app *")
 if buttonr_clicked:
          if email != "":
                  df = df[df['Email'] != email].reset_index(drop=True)
@@ -326,6 +326,7 @@ else:
      
 
      
+
 
 
 
