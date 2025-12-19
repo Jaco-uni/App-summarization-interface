@@ -284,7 +284,7 @@ else:
                 classification = "all"
            
         
-        col_save, col_rem = st.columns([1,1])
+        col_save, col_reset = st.columns([1,1])
         with col_save:
       #bottone per salvataggio dati
            if st.button("🔍 Save"):
@@ -323,6 +323,7 @@ else:
      
 
      
+
 
 
 
