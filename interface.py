@@ -80,6 +80,11 @@ nome = st.text_input("Insert your name *", key="name")
 cognome = st.text_input("Insert your surname *", key="surname")
 email = st.text_input("Insert your email *", key="email")
 st.write("Fields with * are obligatory")
+buttonr_clicked = st.button("Delete Email", key="buttonr")
+              if buttonr_clicked:
+                 if email != "":
+                    df = df[df['Email'] == email].reset_index(drop=True)
+                    st.write("Success")
 st.divider()
 
 
@@ -284,10 +289,9 @@ else:
                 classification = "all"
            
         
-        col_save, col_reset = st.columns([1,1])
-        with col_save:
+        
       #bottone per salvataggio dati
-           if st.button("🔍 Save"):
+        if st.button("🔍 Save"):
                      if not nome or not cognome or not email:
                            st.error("Plese, insert values in all fields with *.") #obbligo di compilazione
                      else:
@@ -312,17 +316,13 @@ else:
                            upload_to_s3(df) # Scrivo tutto in memoria e sovrascrivo su S3
                      
                            st.success("File successfully updated on S3.")
-        with col_reset: 
-              buttonr_clicked = st.button("Delete Email", key="buttonr")
-              if buttonr_clicked:
-                 email = st.text_input(label="Insert your email *")
-                 if email != "":
-                    df = df[df['Email'] == email].reset_index(drop=True)
-                    st.write("Success")
+
+              
 
      
 
      
+
 
 
 
