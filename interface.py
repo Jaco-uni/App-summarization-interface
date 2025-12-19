@@ -78,7 +78,7 @@ with st.expander("📘 User Guide", expanded=True):
 # Input utente
 nome = st.text_input("Insert your name *", key="name")
 cognome = st.text_input("Insert your surname *", key="surname")
-col_email, col_reset = st.coloumns([1,1])
+col_email, col_reset = st.columns([1,1])
 with col_email:
    email = st.text_input("Insert your email *", key="email")
 with col_reset: 
@@ -331,6 +331,7 @@ with col_reset:
         
 
         
+
 
 
 
